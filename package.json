@@ -1,0 +1,23 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "HSKA Field Service Application",
+  "main": "main.js",
+  "scripts": {
+	"start": "electron .",
+    "test": "echo \"No test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/altheviz/UI_LAB_SS_2017.git"
+  },
+  "author": "HSKA UI Lab team\u001b[D\u001b[Cs\u001b[D\u001b[D\u001b[D\u001b[T",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/altheviz/UI_LAB_SS_2017/issues"
+  },
+  "homepage": "https://github.com/altheviz/UI_LAB_SS_2017#readme",
+  "devDependencies": {
+    "electron": "^1.6.2"
+  }
+}

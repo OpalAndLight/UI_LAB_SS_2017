@@ -1,1 +1,1 @@
-# UI_LAB_SS_2017
+# UI LAB Summer Term 2017

@@ -21,6 +21,6 @@ Run the project
 npm start
 ```
 
-This command will run the command `electron .` HTe start point is also defines in the file `package.json`.
+This command will run the command `electron .` The start point is also defines in the file `package.json`.
 
 

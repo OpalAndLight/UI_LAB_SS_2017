@@ -30,7 +30,9 @@
                 </li>
                 <li class="list-group-item">
                     <label for="service-used-parts">Used parts:</label>
-                    <p id="service-used-parts"></p>
+                    <div id="service-used-parts">
+                        <!-- Dynamically insert parts here -->
+                    </div>
                 </li>
                 <li class="list-group-item">
                     <label for="service-real-time">Real time:</label>
@@ -64,5 +66,6 @@
 </body>
 <script>
     require('../js/service_completion/service-completion');
+    require('../js/service_completion/part-selection');
 </script>
 </html>

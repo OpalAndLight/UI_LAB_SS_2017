@@ -3,7 +3,6 @@
 }
 
 #signature {
-    cursor: crosshair;
     padding: 25px;
 }
 
@@ -13,6 +12,7 @@
 }
 
 #signature-canvas {
+    cursor: crosshair;
     background-color: beige;
     border-radius: 5px;
     display: block;

@@ -5,7 +5,7 @@ module.exports = {
     serviceCompletion: {
         id: 1337,
         serviceOrder: 432,
-        creation: "01.05.2017 14:00:00",
+        creation: "",
         usedParts: [
             {
                 id: 42,
@@ -36,8 +36,8 @@ module.exports = {
                 parts: []
             }
         ],
-        realTime: "14:35",
+        realTime: "",
         remarks: "Rust damage on all parts caused a substantial delay.",
-        signature: "path/to/image initially empty"
+        signature: ""
     }
 };

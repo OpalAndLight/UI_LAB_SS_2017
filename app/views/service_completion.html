@@ -18,27 +18,32 @@
             <ul class="list-group">
                 <li class="list-group-item">
                     <label for="service-completion-id">ID:</label>
-                    <div id="service-completion-id"></div>
+                    <p id="service-completion-id"></p>
                 </li>
                 <li class="list-group-item">
                     <label for="service-order">Service order:</label>
-                    <div id="service-order"></div>
+                    <p id="service-order"></p>
                 </li>
                 <li class="list-group-item">
                     <label for="service-creation">Creation:</label>
-                    <div id="service-creation"></div>
+                    <p id="service-creation"></p>
                 </li>
                 <li class="list-group-item">
                     <label for="service-used-parts">Used parts:</label>
-                    <div id="service-used-parts"></div>
+                    <p id="service-used-parts"></p>
                 </li>
                 <li class="list-group-item">
                     <label for="service-real-time">Real time:</label>
-                    <div id="service-real-time"></div>
+                    <div id="service-real-time">
+                        <label for="service-real-time-hours">Hours [HH]:</label>
+                        <input type="number" class="form-control" id="service-real-time-hours"/>
+                        <label for="service-real-time-minutes">Minutes [mm]:</label>
+                        <input type="number" class="form-control" min="0" max="59" id="service-real-time-minutes"/>
+                    </div>
                 </li>
                 <li class="list-group-item">
                     <label for="service-remarks">Remarks:</label>
-                    <div id="service-remarks"></div>
+                    <input type="text" class="form-control" id="service-remarks"/>
                 </li>
             </ul>
         </div>
@@ -48,6 +53,9 @@
             <canvas id="signature-canvas" height="150px"></canvas>
             <button id="signature-clear-btn" class="btn">Clear</button>
         </div>
+    </div>
+    <div class="container row">
+        <button type="button" class="btn btn-lg btn-primary" style="float: right">Complete</button>
     </div>
 </div>
 </body>

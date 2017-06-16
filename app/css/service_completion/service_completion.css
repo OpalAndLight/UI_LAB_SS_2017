@@ -7,8 +7,21 @@
     padding: 25px;
 }
 
+#signature-container {
+    width: 450px;
+    float: right;
+}
+
 #signature-canvas {
     background-color: beige;
     border-radius: 5px;
-    width: 100%;
+    display: block;
+    border: 2px solid #E3E3E3;
+}
+
+#signature-clear-btn {
+    display: block;
+    margin-top: 10px;
+    float: right;
+    margin-right: 25px;
 }

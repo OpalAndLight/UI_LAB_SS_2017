@@ -45,13 +45,16 @@
         <div id="customer"></div>
         <div id="complete"></div>
         <div id="signature" class="col-md-6">
-            <canvas id="signature-canvas" height="150px"></canvas>
-            <button id="signature-clear-btn" class="btn">Clear</button>
+            <div id="signature-container" class="well">
+                <label for="signature">Signature</label>
+                <canvas id="signature-canvas" width="400px" height="100px"></canvas>
+                <button id="signature-clear-btn" class="btn">Clear</button>
+            </div>
         </div>
     </div>
 </div>
 </body>
 <script>
-    let serviceCompletion = require('../js/service_completion/service-completion');
+    require('../js/service_completion/service-completion');
 </script>
 </html>

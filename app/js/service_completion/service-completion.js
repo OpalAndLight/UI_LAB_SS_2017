@@ -32,7 +32,7 @@ function setData(serviceOrder) {
         // TODO set usedParts and signature
         let serviceCompletion = {
             id: id,
-            serviceOrder: serviceOrderId.innerHTML,
+            serviceOrder: serviceOrder.id,
             creation: serviceCreation.innerHTML,
             usedParts: {},
             realTime: serviceRealTimeHours.value + ":" + serviceRealTimeMinutes.value,

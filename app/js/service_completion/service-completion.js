@@ -38,16 +38,6 @@ function setStaticData() {
     serviceRealTimeHours.value = serviceRealTimeDataHours;
     serviceRealTimeMinutes.value = serviceRealTimeDataMinutes;
     serviceRemarks.value = data.serviceCompletion.remarks;
-
-    completeButton.onclick = () => {
-        data.serviceCompletion.id = serviceCompletionId.innerHTML;
-        data.serviceCompletion.serviceOrder = serviceOrder.innerHTML;
-        data.serviceCompletion.creation = serviceCreation.innerHTML;
-        // TODO save used parts
-        data.serviceCompletion.realTime = serviceRealTimeHours.value + ":" + serviceRealTimeMinutes.value;
-        data.serviceCompletion.remarks = serviceRemarks.value;
-        // TODO save signature
-    }
 }
 
 function initServiceCompletion() {

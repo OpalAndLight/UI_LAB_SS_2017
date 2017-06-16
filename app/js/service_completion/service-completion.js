@@ -46,9 +46,9 @@ function setData(serviceOrder) {
     }
 }
 
-function initServiceCompletion() {
+function initServiceCompletion(serviceOrder) {
     console.log('Init service completion');
-    setData(data.serviceOrder);
+    setData(serviceOrder);
     let signatureCanvas = document.getElementById('signature-canvas');
     let context = signatureCanvas.getContext('2d');
     let partsModalCloseBtn = document.getElementById('parts-modal-close-btn');
@@ -113,4 +113,4 @@ function draw(e, context, canvas) {
     context.stroke(); // draw it!
 }
 
-initServiceCompletion();
+initServiceCompletion(data.serviceOrder);

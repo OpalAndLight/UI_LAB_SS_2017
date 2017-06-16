@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <title>Service Completion</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/service_completion/service_completion.css">
 </head>
 <body>
 <div id="container">
     <div id="customer"></div>
     <div id="complete"></div>
     <div id="service_product"></div>
-    <canvas id="signature-canvas" width="200px" height="200px"></canvas>
+    <div id="signature">
+        <canvas id="signature-canvas" width="350px" height="150px"></canvas>
+        <button id="signature-clear-btn">Löschen</button>
+    </div>
 </div>
 </body>
 <script>
-    let serviceCompletion = require('./../js/service-completion/service-completion');
+    let serviceCompletion = require('../js/service_completion/service-completion');
 </script>
 </html>

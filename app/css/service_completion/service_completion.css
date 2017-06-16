@@ -1,0 +1,9 @@
+#signature {
+    cursor: crosshair;
+    padding: 25px;
+    background-color: #333333;
+}
+
+#signature-canvas {
+    background-color: white;
+}

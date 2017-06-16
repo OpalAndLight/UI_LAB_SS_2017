@@ -1,11 +1,30 @@
 /**
  * Created by benni on 16.06.17.
  */
+const data = require('./data-static.js');
+
+function setStaticData() {
+    let serviceCompletionId = document.getElementById('service-completion-id');
+    let serviceOrder = document.getElementById('service-order');
+    let serviceCreation = document.getElementById('service-creation');
+    let serviceUsedParts = document.getElementById('service-used-parts');
+    let serviceRealTime = document.getElementById('service-real-time');
+    let serviceRemarks = document.getElementById('service-remarks');
+
+    serviceCompletionId.innerHTML = data.serviceCompletion.id;
+    serviceOrder.innerHTML = data.serviceCompletion.order;
+    serviceCreation.innerHTML = data.serviceCompletion.creation;
+    serviceUsedParts.innerHTML = data.serviceCompletion.usedParts;
+    serviceRealTime.innerHTML = data.serviceCompletion.realTime;
+    serviceRemarks.innerHTML = data.serviceCompletion.remarks;
+}
 
 let mouseIsDown = false;
 
 function initServiceCompletion() {
     console.log('Init service completion');
+    setStaticData();
+
     let signatureCanvas = document.getElementById('signature-canvas');
     let context = signatureCanvas.getContext('2d');
 

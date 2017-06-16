@@ -2,6 +2,7 @@
  * Created by benni on 16.06.17.
  */
 const data = require('./data-static.js');
+const partsData = require('./data-parts-static.js');
 
 let pos = {x: 0, y: 0};
 
@@ -80,6 +81,7 @@ function initServiceCompletion(serviceOrder) {
         context.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
     };
 }
+
 
 
 function saveCanvasToImg(canvas) {

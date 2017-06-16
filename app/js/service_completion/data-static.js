@@ -4,7 +4,7 @@
 module.exports = {
     serviceCompletion: {
         id: 1337,
-        serviceOrder: "/path/to/service/order",
+        serviceOrder: 432,
         creation: "01.05.2017 14:00:00",
         usedParts: [
             {

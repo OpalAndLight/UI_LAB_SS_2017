@@ -12,7 +12,7 @@ function setStaticData() {
     let serviceRemarks = document.getElementById('service-remarks');
 
     serviceCompletionId.innerHTML = data.serviceCompletion.id;
-    serviceOrder.innerHTML = data.serviceCompletion.order;
+    serviceOrder.innerHTML = data.serviceCompletion.serviceOrder;
     serviceCreation.innerHTML = data.serviceCompletion.creation;
     serviceUsedParts.innerHTML = data.serviceCompletion.usedParts;
     serviceRealTime.innerHTML = data.serviceCompletion.realTime;

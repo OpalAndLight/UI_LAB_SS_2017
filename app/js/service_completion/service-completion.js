@@ -35,7 +35,6 @@ function initServiceCompletion() {
         let mousePos = getMousePos(signatureCanvas, evt);
         draw(evt, context, signatureCanvas);
         let message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-        //writeMessage(signatureCanvas, message);
     }, false);
 
     signatureCanvas.onmousedown = (e) => {
@@ -47,6 +46,7 @@ function initServiceCompletion() {
         context.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
     };
 }
+
 
 function saveCanvasToImg(canvas) {
     data.serviceCompletion.signature = canvas.toDataURL("image/png");
@@ -77,14 +77,6 @@ function draw(e, context, canvas) {
     context.lineTo(pos.x, pos.y); // to
 
     context.stroke(); // draw it!
-}
-
-function writeMessage(canvas, message) {
-    let context = canvas.getContext('2d');
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.font = '14pt Calibri';
-    context.fillStyle = 'black';
-    context.fillText(message, 10, 25);
 }
 
 initServiceCompletion();

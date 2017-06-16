@@ -36,12 +36,17 @@ function initServiceCompletion() {
 
     signatureCanvas.onmousedown = (e) => {
         draw(e, context, signatureCanvas);
-    }
+    };
 
     let clearBtn = document.getElementById('signature-clear-btn');
     clearBtn.onclick = () => {
         context.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
-    }
+    };
+}
+
+function saveCanvasToImg(canvas) {
+    data.serviceCompletion.signature = canvas.toDataURL("image/png");
+    console.log('signature as png: ', data.serviceCompletion.signature);
 }
 
 function getMousePos(canvas, evt) {
@@ -64,9 +69,7 @@ function draw(e, context, canvas) {
     context.lineCap = 'round';
     context.strokeStyle = '#c0392b';
     context.moveTo(pos.x, pos.y); // from
-    console.log('from :', pos.x, pos.y);
     pos = getMousePos(canvas, e);
-    console.log('to :', pos.x, pos.y);
     context.lineTo(pos.x, pos.y); // to
 
     context.stroke(); // draw it!

@@ -1,9 +1,14 @@
+.container {
+    margin-top: 15px;
+}
+
 #signature {
     cursor: crosshair;
     padding: 25px;
-    background-color: #333333;
 }
 
 #signature-canvas {
-    background-color: white;
+    background-color: beige;
+    border-radius: 5px;
+    width: 100%;
 }

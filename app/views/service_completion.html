@@ -7,41 +7,47 @@
     <link rel="stylesheet" href="../css/service_completion/service_completion.css">
 </head>
 <body>
-<div id="container">
-    <h2>Service Completion</h2>
-    <div id="service_product">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <label for="service-completion-id">ID:</label>
-                <div id="service-completion-id"></div>
-            </li>
-            <li class="list-group-item">
-                <label for="service-order">Service order:</label>
-                <div id="service-order"></div>
-            </li>
-            <li class="list-group-item">
-                <label for="service-creation">Creation:</label>
-                <div id="service-creation"></div>
-            </li>
-            <li class="list-group-item">
-                <label for="service-used-parts">Used parts:</label>
-                <div id="service-used-parts"></div>
-            </li>
-            <li class="list-group-item">
-                <label for="service-real-time">Real time:</label>
-                <div id="service-real-time"></div>
-            </li>
-            <li class="list-group-item">
-                <label for="service-remarks">Remarks:</label>
-                <div id="service-remarks"></div>
-            </li>
-        </ul>
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Service Completion</h1>
+        </div>
     </div>
-    <div id="customer"></div>
-    <div id="complete"></div>
-    <div id="signature">
-        <canvas id="signature-canvas" width="350px" height="150px"></canvas>
-        <button id="signature-clear-btn">Löschen</button>
+    <div class="row">
+        <div id="service_product" class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <label for="service-completion-id">ID:</label>
+                    <div id="service-completion-id"></div>
+                </li>
+                <li class="list-group-item">
+                    <label for="service-order">Service order:</label>
+                    <div id="service-order"></div>
+                </li>
+                <li class="list-group-item">
+                    <label for="service-creation">Creation:</label>
+                    <div id="service-creation"></div>
+                </li>
+                <li class="list-group-item">
+                    <label for="service-used-parts">Used parts:</label>
+                    <div id="service-used-parts"></div>
+                </li>
+                <li class="list-group-item">
+                    <label for="service-real-time">Real time:</label>
+                    <div id="service-real-time"></div>
+                </li>
+                <li class="list-group-item">
+                    <label for="service-remarks">Remarks:</label>
+                    <div id="service-remarks"></div>
+                </li>
+            </ul>
+        </div>
+        <div id="customer"></div>
+        <div id="complete"></div>
+        <div id="signature" class="col-md-6">
+            <canvas id="signature-canvas" height="150px"></canvas>
+            <button id="signature-clear-btn" class="btn">Clear</button>
+        </div>
     </div>
 </div>
 </body>

@@ -65,9 +65,9 @@ function draw(e, context, canvas) {
     }
     context.beginPath(); // begin
 
-    context.lineWidth = 5;
+    context.lineWidth = 3;
     context.lineCap = 'round';
-    context.strokeStyle = '#c0392b';
+    context.strokeStyle = 'black';
     context.moveTo(pos.x, pos.y); // from
     pos = getMousePos(canvas, e);
     context.lineTo(pos.x, pos.y); // to

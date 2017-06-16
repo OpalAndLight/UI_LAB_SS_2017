@@ -2,13 +2,13 @@
  * Created by philipp on 16.06.17.
  */
 module.exports = {
-    serviceCompletion: {
+    serviceOrder: {
         id: 1337,
-        serviceOrder: 432,
-        creation: "",
-        usedParts: {},
-        realTime: "",
-        remarks: "",
-        signature: ""
+        serviceRequest: 3,
+        timestamp: "6/16/2017, 6:38:03 PM",
+        technician: 241,
+        plannedParts: [],
+        plannedTime: "13:45",
+        status: "OPEN"
     }
 };

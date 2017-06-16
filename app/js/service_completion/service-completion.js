@@ -5,44 +5,50 @@ const data = require('./data-static.js');
 
 let pos = {x: 0, y: 0};
 
-function setStaticData() {
+function setData(serviceOrder) {
     let serviceCompletionId = document.getElementById('service-completion-id');
-    let serviceOrder = document.getElementById('service-order');
+    let serviceOrderId = document.getElementById('service-order');
     let serviceCreation = document.getElementById('service-creation');
     let partNames = document.getElementById('part-names');
     let serviceRealTimeHours = document.getElementById('service-real-time-hours');
     let serviceRealTimeMinutes = document.getElementById('service-real-time-minutes');
     let serviceRemarks = document.getElementById('service-remarks');
-
     let completeButton = document.getElementById('complete-btn');
 
+    let id = Math.floor(Math.random() * (10000 - 1000) + 1000);
 
-    data.serviceCompletion.creation = new Date().toLocaleString();
+    let servicePlannedTimeSplit = serviceOrder.plannedTime.split(':');
+    let plannedTimeHours = servicePlannedTimeSplit[0];
+    let plannedTimeMinutes = servicePlannedTimeSplit[1];
 
-    let serviceRealTimeDataHours;
-    let serviceRealTimeDataMinutes;
+    serviceCompletionId.innerHTML = id;
+    serviceOrderId.innerHTML = serviceOrder.id;
+    serviceCreation.innerHTML = new Date().toLocaleString();
+    serviceRealTimeHours.value = plannedTimeHours;
+    serviceRealTimeMinutes.value = plannedTimeMinutes;
 
-    if (data.serviceCompletion.realTime === "") {
-        serviceRealTimeDataHours = "0";
-        serviceRealTimeDataMinutes = "0";
-    } else {
-        let serviceRealTimeSplit = data.serviceCompletion.realTime.split(':');
-        serviceRealTimeDataHours = serviceRealTimeSplit[0];
-        serviceRealTimeDataMinutes = serviceRealTimeSplit[1];
+    completeButton.onclick = () => {
+
+        // TODO set usedParts and signature
+        let serviceCompletion = {
+            id: id,
+            serviceOrder: serviceOrderId.innerHTML,
+            creation: serviceCreation.innerHTML,
+            usedParts: {},
+            realTime: serviceRealTimeHours.value + ":" + serviceRealTimeMinutes.value,
+            remarks: serviceRemarks.value,
+            signature: ""
+        };
+
+        serviceOrder.status = "FINISHED";
+
+        console.log('Created service completion: ', serviceCompletion);
     }
-
-    serviceCompletionId.innerHTML = data.serviceCompletion.id;
-    serviceOrder.innerHTML = data.serviceCompletion.serviceOrder;
-    serviceCreation.innerHTML = data.serviceCompletion.creation;
-    partNames.innerHTML = data.serviceCompletion.usedParts;
-    serviceRealTimeHours.value = serviceRealTimeDataHours;
-    serviceRealTimeMinutes.value = serviceRealTimeDataMinutes;
-    serviceRemarks.value = data.serviceCompletion.remarks;
 }
 
 function initServiceCompletion() {
     console.log('Init service completion');
-    setStaticData();
+    setData(data.serviceOrder);
     let signatureCanvas = document.getElementById('signature-canvas');
     let context = signatureCanvas.getContext('2d');
 

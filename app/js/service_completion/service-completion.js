@@ -11,18 +11,43 @@ function setStaticData() {
     let serviceCreation = document.getElementById('service-creation');
     let serviceUsedParts = document.getElementById('service-used-parts');
     let serviceRealTimeHours = document.getElementById('service-real-time-hours');
-    let serviceRealTimeMinutes = document.getElementById('service-real-time-hours');
+    let serviceRealTimeMinutes = document.getElementById('service-real-time-minutes');
     let serviceRemarks = document.getElementById('service-remarks');
 
-    let currentTime = new Date().toLocaleString();
-    data.serviceCompletion.creation = currentTime;
+    let completeButton = document.getElementById('complete-btn');
+
+
+    data.serviceCompletion.creation = new Date().toLocaleString();
+
+    let serviceRealTimeDataHours;
+    let serviceRealTimeDataMinutes;
+
+    if (data.serviceCompletion.realTime === "") {
+        serviceRealTimeDataHours = "0";
+        serviceRealTimeDataMinutes = "0";
+    } else {
+        let serviceRealTimeSplit = data.serviceCompletion.realTime.split(':');
+        serviceRealTimeDataHours = serviceRealTimeSplit[0];
+        serviceRealTimeDataMinutes = serviceRealTimeSplit[1];
+    }
 
     serviceCompletionId.innerHTML = data.serviceCompletion.id;
     serviceOrder.innerHTML = data.serviceCompletion.serviceOrder;
     serviceCreation.innerHTML = data.serviceCompletion.creation;
     serviceUsedParts.innerHTML = data.serviceCompletion.usedParts;
-    //serviceRealTime.innerHTML = data.serviceCompletion.realTime;
+    serviceRealTimeHours.value = serviceRealTimeDataHours;
+    serviceRealTimeMinutes.value = serviceRealTimeDataMinutes;
     serviceRemarks.value = data.serviceCompletion.remarks;
+
+    completeButton.onclick = () => {
+        data.serviceCompletion.id = serviceCompletionId.innerHTML;
+        data.serviceCompletion.serviceOrder = serviceOrder.innerHTML;
+        data.serviceCompletion.creation = serviceCreation.innerHTML;
+        // TODO save used parts
+        data.serviceCompletion.realTime = serviceRealTimeHours.value + ":" + serviceRealTimeMinutes.value;
+        data.serviceCompletion.remarks = serviceRemarks.value;
+        // TODO save signature
+    }
 }
 
 function initServiceCompletion() {

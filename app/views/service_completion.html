@@ -36,7 +36,7 @@
                     <label for="service-real-time">Real time:</label>
                     <div id="service-real-time">
                         <label for="service-real-time-hours">Hours [HH]:</label>
-                        <input type="number" class="form-control" id="service-real-time-hours"/>
+                        <input type="number" class="form-control" min="0" id="service-real-time-hours"/>
                         <label for="service-real-time-minutes">Minutes [mm]:</label>
                         <input type="number" class="form-control" min="0" max="59" id="service-real-time-minutes"/>
                     </div>
@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="container row">
-        <button type="button" class="btn btn-lg btn-primary" style="float: right">Complete</button>
+        <button type="button" class="btn btn-lg btn-primary" style="float: right" id="complete-btn">Complete</button>
     </div>
 </div>
 </body>

@@ -51,6 +51,19 @@ function initServiceCompletion() {
     setData(data.serviceOrder);
     let signatureCanvas = document.getElementById('signature-canvas');
     let context = signatureCanvas.getContext('2d');
+    let partsModalCloseBtn = document.getElementById('parts-modal-close-btn');
+    let partsSelect = document.getElementById('parts-select');
+
+    function updateUsedParts() {
+        let partsList = [...partsSelect.options]
+            .filter(option => option.selected)
+            .map(option => option.value);
+        console.log('selected parts: ', partsList);
+    }
+
+    partsModalCloseBtn.onclick = () => {
+        updateUsedParts();
+    };
 
     signatureCanvas.addEventListener('mousemove', function (evt) {
         let mousePos = getMousePos(signatureCanvas, evt);

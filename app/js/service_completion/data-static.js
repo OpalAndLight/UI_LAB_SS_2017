@@ -8,7 +8,7 @@ module.exports = {
         creation: "01.05.2017 14:00:00",
         usedParts: [
             {
-                id: "42",
+                id: 42,
                 name: "Door 720-CS",
                 price: "499,00",
                 currency: "EUR",
@@ -25,7 +25,7 @@ module.exports = {
                 ]
             },
             {
-                id: "2352",
+                id: 2352,
                 name: "Door montage",
                 price: "60,23",
                 currency: "EUR",

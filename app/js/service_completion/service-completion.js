@@ -10,15 +10,19 @@ function setStaticData() {
     let serviceOrder = document.getElementById('service-order');
     let serviceCreation = document.getElementById('service-creation');
     let serviceUsedParts = document.getElementById('service-used-parts');
-    let serviceRealTime = document.getElementById('service-real-time');
+    let serviceRealTimeHours = document.getElementById('service-real-time-hours');
+    let serviceRealTimeMinutes = document.getElementById('service-real-time-hours');
     let serviceRemarks = document.getElementById('service-remarks');
+
+    let currentTime = new Date().toLocaleString();
+    data.serviceCompletion.creation = currentTime;
 
     serviceCompletionId.innerHTML = data.serviceCompletion.id;
     serviceOrder.innerHTML = data.serviceCompletion.serviceOrder;
     serviceCreation.innerHTML = data.serviceCompletion.creation;
     serviceUsedParts.innerHTML = data.serviceCompletion.usedParts;
-    serviceRealTime.innerHTML = data.serviceCompletion.realTime;
-    serviceRemarks.innerHTML = data.serviceCompletion.remarks;
+    //serviceRealTime.innerHTML = data.serviceCompletion.realTime;
+    serviceRemarks.value = data.serviceCompletion.remarks;
 }
 
 function initServiceCompletion() {

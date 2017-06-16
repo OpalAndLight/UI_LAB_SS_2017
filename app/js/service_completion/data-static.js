@@ -12,15 +12,15 @@ module.exports = {
                 name: "Door 720-CS",
                 price: "499,00",
                 currency: "EUR",
-                unit:"PIECE",
-                type:"PART",
+                unit: "PIECE",
+                type: "PART",
                 parts: [ {
-                        id: "42",
+                        id: 43,
                         name: "Window 720-CS",
                         price: "299,00",
                         currency: "EUR",
-                        unit:"PIECE",
-                        type:"PART"
+                        unit: "PIECE",
+                        type: "PART"
                     }
                 ]
             },

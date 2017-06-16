@@ -5,6 +5,11 @@
     <title>Service Completion</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../css/service_completion/service_completion.css">
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
 <div class="container">
@@ -31,7 +36,33 @@
                 <li class="list-group-item">
                     <label for="service-used-parts">Used parts:</label>
                     <div id="service-used-parts">
-                        <!-- Dynamically insert parts here -->
+                        <div id="part-names"></div>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#partsModal">Open Modal</button>
+                        <div id="partsModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Part Selection</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="parts-list" class="form-group">
+                                            <form>
+                                                <select  class="form-control" name="parts" id="parts-select" multiple>
+                                                    <!-- filled from json -->
+                                                </select>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">

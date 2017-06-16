@@ -1,14 +1,14 @@
 const data = require('./data-parts-static.js');
 
 function displayParts() {
-    let partsDiv = document.getElementById('service-used-parts');
+    let partsSelect = document.getElementById('parts-select');
     let partList = "";
     data.parts.forEach((part) => {
         console.log(part);
-        partList += `<li>Id:${part.id}</li>`;
+        partList += `<option>${part.name}</option>`;
     });
-    console.log('partList: ', partList);
-    partsDiv.innerHTML = `<ul class="list-group">${partList}</ul>`;
+    console.log(partList);
+    partsSelect.innerHTML = partList;
 }
 
 displayParts();

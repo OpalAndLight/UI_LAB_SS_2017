@@ -1,7 +1,7 @@
 /**
  * Created by benni on 16.06.17.
  */
-const data = require('./data-static.js');
+let data = require('./data-static.js');
 const partsData = require('./data-parts-static.js');
 
 let pos = {x: 0, y: 0};
@@ -28,35 +28,40 @@ function setData(serviceOrder) {
     serviceRealTimeMinutes.value = plannedTimeMinutes;
 
     completeButton.onclick = () => {
-
-        // TODO set usedParts and signature
         let serviceCompletion = {
             id: id,
             serviceOrder: serviceOrder.id,
             creation: serviceCreation.innerHTML,
-            usedParts: {},
+            usedParts: getUsedParts(),
             realTime: serviceRealTimeHours.value + ":" + serviceRealTimeMinutes.value,
             remarks: serviceRemarks.value,
-            signature: ""
+            signature:  document.getElementById('signature-canvas').toDataURL("image/png")
         };
-
         serviceOrder.status = "FINISHED";
-
-        console.log('Created service completion: ', serviceCompletion);
+        console.log(serviceCompletion);
     }
 }
 
+let getSelectedPartIds = function () {
+    return [...document.getElementById('parts-select').options]
+        .filter(option => option.selected)
+        .map(option => Number(option.value));
+};
+
+let getUsedParts = function () {
+    return partsData.parts.filter(i => getSelectedPartIds().some(j => i.id === j));
+};
+
 function initServiceCompletion(serviceOrder) {
-    console.log('Init service completion');
     setData(serviceOrder);
     let signatureCanvas = document.getElementById('signature-canvas');
     let context = signatureCanvas.getContext('2d');
     let partsModalCloseBtn = document.getElementById('parts-modal-close-btn');
     let partsSelect = document.getElementById('parts-select');
+
     let usedPartsHtml = document.getElementById('used-parts');
 
     function removePart(elem) {
-        console.log(elem);
         let selectedPartIds = [...partsSelect.options].forEach((option) => {
             if (elem.value === Number(option.value)) {
                 option.selected = false;
@@ -79,15 +84,8 @@ function initServiceCompletion(serviceOrder) {
         })
     }
 
-    let getSelectedPartIds = function () {
-        let selectedPartIds = [...partsSelect.options]
-            .filter(option => option.selected)
-            .map(option => Number(option.value));
-        return selectedPartIds;
-    };
-
     function partSelectionChanged() {
-        let usedParts = partsData.parts.filter(i => getSelectedPartIds().some(j => i.id === j));
+        let usedParts = getUsedParts(getSelectedPartIds);
         setUsedParts(usedParts);
     }
 
@@ -109,12 +107,6 @@ function initServiceCompletion(serviceOrder) {
     clearBtn.onclick = () => {
         context.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
     };
-}
-
-
-function saveCanvasToImg(canvas) {
-    data.serviceCompletion.signature = canvas.toDataURL("image/png");
-    console.log('signature as png: ', data.serviceCompletion.signature);
 }
 
 function getMousePos(canvas, evt) {

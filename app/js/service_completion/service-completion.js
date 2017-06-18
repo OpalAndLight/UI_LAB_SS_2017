@@ -10,7 +10,6 @@ function setData(serviceOrder) {
     let serviceCompletionId = document.getElementById('service-completion-id');
     let serviceOrderId = document.getElementById('service-order');
     let serviceCreation = document.getElementById('service-creation');
-    let partNames = document.getElementById('part-names');
     let serviceRealTimeHours = document.getElementById('service-real-time-hours');
     let serviceRealTimeMinutes = document.getElementById('service-real-time-minutes');
     let serviceRemarks = document.getElementById('service-remarks');
@@ -54,16 +53,46 @@ function initServiceCompletion(serviceOrder) {
     let context = signatureCanvas.getContext('2d');
     let partsModalCloseBtn = document.getElementById('parts-modal-close-btn');
     let partsSelect = document.getElementById('parts-select');
+    let usedPartsHtml = document.getElementById('used-parts');
 
-    function updateUsedParts() {
-        let partsList = [...partsSelect.options]
+    function removePart(elem) {
+        console.log(elem);
+        let selectedPartIds = [...partsSelect.options].forEach((option) => {
+            if (elem.value === Number(option.value)) {
+                option.selected = false;
+            }
+        });
+        partSelectionChanged();
+    }
+
+    function setUsedParts(usedParts) {
+        let result = "";
+        usedParts.forEach((part) => {
+            result += `<li value="${part.id}" class="list-group-item part-list-item">${part.name}
+                 <a class="glyphicon glyphicon-remove btn-right btn-part-delete"></a></li>`;
+        });
+        usedPartsHtml.innerHTML = result;
+        $(".part-list-item").each(function (index, value) {
+            value.onclick = () => {
+                removePart(value);
+            }
+        })
+    }
+
+    let getSelectedPartIds = function () {
+        let selectedPartIds = [...partsSelect.options]
             .filter(option => option.selected)
-            .map(option => option.value);
-        console.log('selected parts: ', partsList);
+            .map(option => Number(option.value));
+        return selectedPartIds;
+    };
+
+    function partSelectionChanged() {
+        let usedParts = partsData.parts.filter(i => getSelectedPartIds().some(j => i.id === j));
+        setUsedParts(usedParts);
     }
 
     partsModalCloseBtn.onclick = () => {
-        updateUsedParts();
+        partSelectionChanged();
     };
 
     signatureCanvas.addEventListener('mousemove', function (evt) {
@@ -81,7 +110,6 @@ function initServiceCompletion(serviceOrder) {
         context.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
     };
 }
-
 
 
 function saveCanvasToImg(canvas) {

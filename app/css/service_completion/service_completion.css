@@ -1,0 +1,31 @@
+.container {
+    margin-top: 15px;
+}
+
+#signature {
+    padding: 25px;
+}
+
+#signature-container {
+    width: 450px;
+    float: right;
+}
+
+#signature-canvas {
+    cursor: crosshair;
+    background-color: beige;
+    border-radius: 5px;
+    display: block;
+    border: 2px solid #E3E3E3;
+}
+
+#signature-clear-btn {
+    display: block;
+    margin-top: 10px;
+    float: right;
+    margin-right: 25px;
+}
+
+.btn-right {
+    float: right;
+}

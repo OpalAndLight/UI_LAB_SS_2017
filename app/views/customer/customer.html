@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1>Customer Management: Overview</h1>
+	</div>
+	<div class="form-group">
+		<div class="input-group">					
+			<input type="text" class="form-control" id="SearchText" value="">
+			<span class="input-group-btn">
+				<button class="btn btn-md btn-danger hidden" id="ClearBtn" type="button">Clear</button>
+				<button class="btn btn-md btn-primary" id="SearchBtn" type="button">Search</button>				
+			</span>
+		</div>
+	</div>
+	<div class="list-group" id="content"></div>	
+	<ul class="pager hidden" id="MyPager">
+		<li class="previous hidden" id="previousField"><a href="#">Previous</a></li>
+		<li class="next hidden" id="nextField"><a href="#">Next</a></li>
+	</ul>
+	<div class="container row">
+		<a href="customer2.html?new" class="btn btn-lg btn-primary btn-block" id="new">Add new Customer</a>
+        <a href="../index.html" class="btn btn-lg btn-default btn-block" id="back">Back to Start</a>		
+    </div>
+		
+</div>
+</body>
+<script>
+    require('../../js/customer/customer');
+</script>
+</html>

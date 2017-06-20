@@ -1,0 +1,41 @@
+{"ServiceRequest": [{
+	"id":1,
+	"serviceProduct":1,
+	"timestamp":"15.05.2017",
+	"customer":1,
+	"serviceType":"REPAIR",
+	"urgency":"HIGH",
+	"type":"FIELD_SERVICE",
+	"issueDetails":"Car won't start!"
+},
+{
+	"id":2,
+	"serviceProduct":2,
+	"timestamp":"10.05.2017",
+	"customer":1,
+	"serviceType":"REPAIR",
+	"urgency":"LOW",
+	"type":"SERVICE_CENTER",
+	"issueDetails":"Car smells strange"
+},
+{
+	"id":3,
+	"serviceProduct":3,
+	"timestamp":"20.06.2017",
+	"customer":2,
+	"serviceType":"INSPECTION",
+	"urgency":"MEDIUM",
+	"type":"SERVICE_CENTER",
+	"issueDetails":"Yearly security inspection"
+},
+{
+	"id":4,
+	"serviceProduct":4,
+	"timestamp":"22.06.2017",
+	"customer":2,
+	"serviceType":"REPAIR",
+	"urgency":"CRITICAL",
+	"type":"FIELD_SERVICE",
+	"issueDetails":"Car is burning need URGENT HELP!!!111OneOneEleven"
+}]
+}

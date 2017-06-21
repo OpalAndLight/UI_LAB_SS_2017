@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warehouse</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/warehouse/warehouse.css">
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Warehouse</h1>
+        </div>
+    </div>
+    <div class="row table-responsive">
+        <table class="table table-striped" id="warehouse-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Anzahl</th>
+                <th>Lagerort</th>
+                <th>Info</th>
+                <th>Add</th>
+            </tr>
+            </thead>
+            <tbody id="warehousetablebody">
+            </tbody>
+        </table>
+
+    </div>
+    <div class="container row">
+        <a href="index.html" class="btn btn-lg btn-default" id="complete-cncl">Back</a>
+    </div>
+</div>
+
+<div class="modal fade" id="infoDialog" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">x</button>
+                <h3>Details</h3>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="partId">Teilenummer</label>
+                        <input disabled class="form-control" type="text" name="partId" id="partId" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="partName">Name</label>
+                        <input disabled class="form-control" type="text" name="partName" id="partName" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="partPrice">Preis</label>
+                        <input disabled class="form-control" type="text" name="partPrice" id="partPrice" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="partUnit">Einheit</label>
+                        <input disabled class="form-control" type="text" name="partUnit" id="partUnit" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="partServiceDescription">Service Beschreibung</label>
+                        <input disabled class="form-control" type="text" name="partDescription" id="partServiceDescription"
+                               value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="partDescription">Beschreibung</label>
+                        <input disabled class="form-control" type="text" name="partDescription" id="partDescription"
+                               value=""/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addDialog" role="dialog">
+    <div class="modal-dialog">
+        <form role="form">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">x</button>
+                <h3>Hinzufügen</h3>
+            </div>
+            <div class="modal-body">
+                
+                    <div class="form-group">
+                        <label for="partName">Name</label>
+                        <input disabled class="form-control" type="text" name="partName" id="partName" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <label for="partPrice">Anzahl</label>
+                        <input enabled class="form-control" type="number" placeholder="Anzahl z.b. 10" name="partAmount" id="partAmount" value=""/>
+                    </div>
+                    <input type="hidden" name="partIndex" id="partIndex" val="" />
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnCancel" class="btn btn-danger" data-dissmiss="modal">Cancel</button>
+                <button type="button" id="btnAdd" class="btn btn-success" data-dissmiss="modal">Add</button>
+            </div>            
+        </div>
+        </form>
+    </div>
+
+</body>
+<script>
+    require('../js/warehouse/warehouse');
+</script>
+</html>

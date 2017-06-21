@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1>Customer Management</h1>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<h3 class="list-group-item-heading">Details:</h3>
+			<div class="list-group" id="content">
+				<li class="list-group-item">
+					<p class="list-group-item-heading">Name:</p>
+					<h4 class="list-group-item-text" id="cName"></h4>
+				</li>
+				<li class="list-group-item">
+					<p class="list-group-item-heading">Address:</p>
+					<h4 class="list-group-item-text" id="cAddress"></h4>
+				</li>
+				<li class="list-group-item">
+					<p class="list-group-item-heading">Phone:</p>
+					<h4 class="list-group-item-text" id="cPhone"></h4>
+				</li>
+				<li class="list-group-item">
+					<p class="list-group-item-heading">Mobile:</p>
+					<h4 class="list-group-item-text" id="cMobile"></h4>
+				</li>
+				<a href="#" class="list-group-item" id="WebpageLine">
+					<p class="list-group-item-heading">Webpage:</p>
+					<h4 class="list-group-item-text" id="cWeb"></h4>
+				</a>
+				<a href="#" class="list-group-item" id="mailtoLine">
+					<p class="list-group-item-heading">E-Mail:</p>
+					<h4 class="list-group-item-text" id="cEmail"></h4>
+				</a>				
+				<li class="list-group-item">
+					<p class="list-group-item-heading">Latitude:</p>
+					<h4 class="list-group-item-text" id="cLat"></h4>
+				</li>
+				<li class="list-group-item">
+					<p class="list-group-item-heading">Longitude:</p>
+					<h4 class="list-group-item-text" id="cLng"></h4>
+				</li>
+			</div>			
+		</div>
+		<div class="col-sm-6">
+			<h3 class="list-group-item-heading">Open Requests:</h3>
+			<div class="list-group" id="RQcontent"></div>	
+		</div>
+	</div>
+	<div class="container row">
+		<a href="customer2.html" class="btn btn-lg btn-primary btn-block" id="edit">Edit Customer</a>
+		<button class="btn btn-lg btn-danger btn-block" id="delete" data-toggle="modal" data-target="#myModal">Delete Customer</button>
+        <a href="customer.html" class="btn btn-lg btn-default btn-block" id="back">Back to Overview</a>		
+    </div>
+		
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" id="diagTitle">Do you really want to delete this customer?</h4>
+      </div>
+      <div class="modal-footer">
+		<button type="button" class="btn btn-danger" id="finalDelete" data-dismiss="modal">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+<script>
+    require('../../js/customer/customer3');
+</script>
+</html>

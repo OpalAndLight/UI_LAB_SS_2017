@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Management: New Customer</title>
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>	
+</head>
+<body>
+<div class="container">
+	<div class="page-header">
+		<h1>Customer Management: New Customer</h1>
+	</div>
+	<div id="nameForm" class="form-group has-error has-feedback">
+		<label for="name">Name:</label>
+		<input type="text" placeholder="At least 2 signs" data-minlength="2" class="form-control" id="name">
+		<span id="nameStatusIcon" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+	</div>
+	<div class="form-group">
+		<label for="address">Adress:</label>
+		<div class="input-group">					
+			<input type="text" class="form-control" id="address" value="">
+			<span class="input-group-btn">
+				<button class="btn btn-md btn-primary" id="GetAdressFromGoogle" type="button">Check</button>
+			</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="phone">Phone:</label>
+		<input type="number" class="form-control" id="phone">
+	</div>
+	<div class="form-group">
+		<label for="mobile">Mobile:</label>
+		<input type="number" class="form-control" id="mobile">
+	</div>
+	<div id="webForm" class="form-group">
+		<label for="web">Web:</label>
+		<input type="url" placeholder="www.example.example" class="form-control" id="web">
+	</div>
+	<div id="emailForm" class="form-group has-feedback">
+		<label for="email">E-Mail:</label>
+		<input type="email" class="form-control" id="email" placeholder="example@example.example">
+		<span id="emailStatusIcon" class="glyphicon form-control-feedback"></span>
+	</div>
+	<form>
+		<input type="hidden" id="latitude" value="">
+		<input type="hidden" id="longitude" value="">
+	</form>
+	
+	<div class="container row">
+		<button class="btn btn-lg btn-primary disabled btn-block" id="NCADD" type="button">Save Customer</button>
+        <a href="customer.html" class="btn btn-lg btn-default btn-block" id="NCC">Cancel</a>		
+    </div>
+</div>
+</body>
+<script>
+    require('../../js/customer/customer2');
+</script>
+</html>

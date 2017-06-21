@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Agenda</title>
+
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Agenda</h1>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <table class="table" id="agenda-table">
+                <tr>
+                    <th>Planned time</th>
+                    <th>Customer</th>
+                    <th></th>
+                </tr>
+                <tr class="agenda-item">
+                    <td>
+                        <div class="planned-time list-group-item">
+                            <h4 class="list-group-item-heading"></h4>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="customer list-group-item">
+                            <h4 class="list-group-item-heading"></h4>
+                            <p class="list-group-item-text"></p>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-info glyphicon glyphicon-play">
+
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="container row">
+        <a href="index.html" id="cancel-btn" class="btn btn-lg default">Back</a>
+    </div>
+
+</div>
+
+</body>
+<script>
+    require('../js/agenda/agenda.js');
+</script>
+</html>
+

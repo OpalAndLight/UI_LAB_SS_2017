@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Service Completion</title>
+
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Service Order</h1>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="list-group">
+                        <h3>Customer</h3>
+                        <a id="customer" class="list-group-item">
+                            <h4 class="list-group-item-heading"></h4>
+                            <p class="list-group-item-text"></p>
+                        </a>
+                        <h3>Service Request</h3>
+                        <a id="service-request" class="list-group-item">
+                            <h4 class="list-group-item-heading"></h4>
+                            <p class="list-group-item-text"></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+            <ul class="list-group">
+
+                <li class="list-group-item">
+                    <label for="service-order-id">ID:</label>
+                    <p id="service-order-id"></p>
+                </li>
+                <li class="list-group-item">
+                    <label for="service-timestamp">Timestamp:</label>
+                    <p id="service-timestamp"></p>
+                </li>
+                <li class="list-group-item">
+                    <label for="service-technician">Technician:</label>
+                    <p id="service-technician"></p>
+                </li>
+                <li class="list-group-item">
+                    <label for="service-planned-parts">Planned parts:</label>
+                    <div id="service-planned-parts">
+                        <ul id="planned-parts" class="list-group">
+                            <li class="list-group-item">
+
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="list-group-item">
+                    <label for="service-planned-time">Planned Time:</label>
+                    <p id="service-planned-time"></p>
+                </li>
+
+                <li class="list-group-item">
+                    <label for="service-status">Status:</label>
+                    <p id="service-status"></p>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="col-md-6">
+
+        </div>
+
+    </div>
+
+    <div class="container row">
+        <a href="history.html" id="history-btn" class="btn btn-lg btn-primary" style="float: right">History</a>
+        <a href="index.html" id="cancel-btn" class="btn btn-lg default">Cancel</a>
+        <a href="service_completion.html" id="complete-btn" class="btn btn-lg btn-primary">Complete</a>
+    </div>
+
+</div>
+
+</body>
+<script>
+    require('../js/service_order/service-order.js');
+</script>
+</html>
+

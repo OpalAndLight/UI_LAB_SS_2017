@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>HSKA Field Service</title>
-  </head>
-  <body>
-    <h1>HSKA Field Service</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-    <ul>
-        <li>
-            <a href="map.html">Map</a>
-        </li>
-        <li>
-            <a href="service_completion.html">Service Completion</a>
-        </li>
-		<li>
-            <a href="customer/customer.html">Customer Management</a>
-        </li>
-    </ul>
-  </body>
+    <title>HSKA Service</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<table>
+    <tr>
+        <td><a href="service_completion.html" title="New Service Request"><img src="../img/ic_build_black_24px.svg" alt="New Service Request"/></a></td>
+        <td><a href="" title="Service Orders"><img src="../img/ic_assignment_black_24px.svg" alt="Service Orders"/></a></td>
+        <td><a href="" title="Agenda"><img src="../img/ic_event_note_black_24px.svg" alt="Agenda"/></a></td>
+        <td><a href="map.html" title="Map"><img src="../img/ic_map_black_24px.svg" alt="Map"/></a></td>
+    </tr>
+    <tr>
+        <td><a href="" title="Lot Management"><img src="../img/ic_directions_car_black_24px.svg" alt="Lot Management"/></a></td>
+        <td><a href="" title="Warehouse Management"><img src="../img/ic_store_mall_directory_black_24px.svg" alt="Warehouse Management"/></a></td>
+        <td><a href="customer/customer.html" title="Customer Management"><img src="../img/ic_people_black_24px.svg" alt="Settings"/></a></td>
+        <td><a href="settings.html" title="Settings"><img src="../img/ic_settings_black_24px.svg" alt="Settings"/></a></td>
+    </tr>
+</table>
+</body>
+<footer>
+    Node.js
+    <script>document.write(process.versions.node)</script>
+    ,
+    Chromium
+    <script>document.write(process.versions.chrome)</script>
+    ,
+    and Electron
+    <script>document.write(process.versions.electron)</script>
+    .
+</footer>
 
-  <script>
+<script>
     // You can also require other files to run in this process
     require('./../js/renderer.js')
-  </script>
+</script>
 </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>HSKA Field Service- LOT </title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/service_completion/service_completion.css">
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        window.jQuery = window.$ = require('jquery');
+    </script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+          <div class="jumbotron">
+              <h1>LOT </h1>
+          </div>
+      </div>
+
+      <div class="row">
+        <h3 id=centerName>Service Center</h3>
+        <ul id=serviceCenter class="list-inline"> </ul>
+      </div>
+
+      <div class="row">
+
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Lot Name</th>
+                <th>Service Type</th>
+                <th>Service Order</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id=lotTableBody >
+            </tbody>
+          </table>
+
+
+          <div class="container row">
+            <a href="index.html" class="btn btn-lg btn-default btn-block"
+                                 id="back">Back to Start</a>
+          </div>
+      </div>
+    </div>
+  </body>
+<script>
+    require('../js/lot/lot');
+</script>
+  </html>

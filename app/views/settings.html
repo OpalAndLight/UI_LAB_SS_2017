@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <link rel="stylesheet" href="../css/settings.css">
+</head>
+<body>
+<a href="index.html" title="Home"><img src="../img/ic_home_black_24px.svg" alt="Home"/></a>
+
+<!-- input names: textfieldEmail textfieldPassword buttonSubmit dropdownMode -->
+
+<div class="u-full-width">
+    <table>
+        <tr>
+            <td><a>Username (email): </a></td>
+            <td><input id="textfieldEmail" pattern="[^ @]*@[^ @]*" placeholder="Enter your email" type="email"
+                       required/></td>
+        </tr>
+        <tr>
+            <td><a>Password: </a></td>
+            <td><input class="u-full-width" placeholder="mySuperSecretPassword" id="textfieldPassword" type="password"/>
+            </td>
+            <td>
+                <input id="buttonSubmit" type="submit" value="Save"/>
+            </td>
+        </tr>
+        <tr>
+            <td><a>Select mode: </a></td>
+            <td>
+                <!--
+                    var e = document.getElementById("ddlViewBy");
+                    var strUser = e.options[e.selectedIndex].value;
+                    Would make strUser be 2. If what you actually want is test2, then do this:
+                    var e = document.getElementById("ddlViewBy");
+                    var strUser = e.options[e.selectedIndex].text;
+                 -->
+                <select id="dropdownMode">
+                    <option value="SERVICE_CENTER">Service Center</option>
+                    <option value="FIELD_SERVICE">Field Service</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+<script>
+    // You can also require other files to run in this process
+    require('./../js/renderer.js')
+    require('./../js/settings/settings.js')
+</script>
+</html>

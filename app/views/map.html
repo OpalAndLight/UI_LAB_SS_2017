@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="./../css/plugins/leaflet.awesome-markers/leaflet.awesome-markers.css">
     <script src="./../js/plugins/leaflet.awesome-markers/leaflet.awesome-markers.js"></script>
 
+    <!-- Templates -->
+    <link rel="import" href="./templates/navigation.html"></link>
+
     <style>
         #mapid {
             max-width: 100%;
@@ -27,10 +30,9 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <div class="jumbotron">
-                <h1>Map</h1>
-            </div>
+        <fancy-navigation></fancy-navigation>
+        <div class="jumbotron">
+            <h1>Map</h1>
         </div>
         <div class="row">
             <div class="col-sm-10">
@@ -62,15 +64,6 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-12">
-                    <div class="button">
-                        <label>
-                            <a href="index.html">BACK</a>
-                        </label>
-                    </div>
-            </div>
-        </div>
     </div>
 
 </body>

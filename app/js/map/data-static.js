@@ -54,39 +54,6 @@ module.exports = {
             location: [49.005426, 8.386955]
         },
     ],
-    serviceCenter: [
-        {
-            id: 1,
-            name: "KA-MAIN",
-            address: "",
-            phone: "",
-            mobile: "",
-            web: "",
-            email: "",
-            location: [49.009283, 8.403921],
-            technicians: [1, 2],
-        }
-    ],
-    customer: [
-        {
-            id: 1,
-            name: "HSKA",
-            location: [49.015373, 8.389502],
-            address: "HSKA",
-            phone: "",
-            mobile: "",
-            web: "",
-            email: ""
-        },
-        {
-            id: 2,
-            name: "POST",
-            location: [49.009098, 8.394233],
-            address: "POST",
-            phone: "",
-            mobile: "",
-            web: "",
-            email: ""
-        }
-    ],
+    serviceCenter: [],
+    customer: [],
 }

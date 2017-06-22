@@ -10,7 +10,7 @@ module.exports = {
               "mobile": "",
               "web": "www.service-five.com",
               "email": "five@service.com",
-              "location": ["", ""],
+              "location": ["49.009283", "8.403921"],
               "lot": [
                   {
                       "id": 5,
@@ -40,7 +40,7 @@ module.exports = {
                 "mobile": "",
                 "web": "www.service-five.com",
                 "email": "five@service.com",
-                "location": ["", ""],
+                "location": ["49.0004058","8.3782908"],
                 "lot": [
                     {
                         "id": 1,

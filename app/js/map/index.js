@@ -1,5 +1,11 @@
 const data = require('./data-static.js')
+const customer_data = require('./../customer/customer.json')
+const lot_data = require('./../lot/data-static.js')
 const iconSettings = require('./iconSettings.js')
+
+// include remote data
+data.customer = [...customer_data.customer];
+data.serviceCenter = [...lot_data.lot.serviceCenter];
 
 // return icons for marker with adapted settings
 function getIcon(category, type) {

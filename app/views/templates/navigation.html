@@ -1,0 +1,41 @@
+<html>
+<template id="navigationTemplate">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+    <style>
+        nav li {
+            float: left;
+        }
+        .navbar-nav {
+            margin: 0;
+        }
+    </style>
+
+    <div class="outer">
+        <nav class="navbar navbar-default">
+            <!-- Brand and toggle get grouped for better mobile display -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="map.html">Map</a></li>
+                </ul>
+        </nav>
+        <content></content>
+    </div>
+</template>
+<script>
+var importDoc = document.currentScript.ownerDocument;
+var navigationPrototype = Object.create(HTMLElement.prototype);
+navigationPrototype.createdCallback = function() {
+    var shadow = this.createShadowRoot();
+    var template = importDoc.querySelector('#navigationTemplate');
+    shadow.appendChild(template.content.cloneNode(true));
+};
+document.registerElement("fancy-navigation", {
+    prototype: navigationPrototype
+});
+</script>
+
+</html>

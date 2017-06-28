@@ -65,7 +65,7 @@ function setData(data) {
     let requestEntry =  document.getElementById('service-request');
     requestEntry.firstElementChild.innerHTML = tempRequest.serviceType;
     requestEntry.lastElementChild.innerHTML = tempRequest.issueDetails;
-    requestEntry.href = "service-request/service-request.html?id=" +serviceOrder.serviceRequest;
+    requestEntry.href = "service_request.html?id=" +serviceOrder.serviceRequest;
 
     document.getElementById('service-order-id').innerHTML = serviceOrderId;
     document.getElementById('service-timestamp').innerHTML = serviceOrder.timestamp;

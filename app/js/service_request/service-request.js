@@ -1,5 +1,7 @@
 let data = require('./data-static');
 
+const { URL, URLSearchParams} = require('url');
+
 function fillField(field_id, field_value){
     let elem = document.getElementById(field_id);
     elem.innerText = field_value;
@@ -29,6 +31,8 @@ function showServiceRequest(the_data){
     selectField("properties_service_type", the_data.serviceType);
     selectField("properties_urgency", the_data.urgency);
     selectField("properties_type", the_data.type);
+
+    document.getElementById("customerDetails").href = "customer/customer3.html?" + cu.id;
 }
 
 function prepareForm(techs, sr){
@@ -45,8 +49,9 @@ function prepareForm(techs, sr){
     timeField.value = "1:30:00";
 
     let form = document.getElementById("service_request_form");
-    form.addEventListener("submit", () => {
-        
+    form.addEventListener("submit", (ev) => {  
+        ev.preventDefault();
+        ev.stopPropagation();
         let so_id = Math.floor(Math.random() * 1000); // Maybe this can be improved ;-)
         let so = {
             	id: so_id,
@@ -71,22 +76,45 @@ function prepareForm(techs, sr){
 function sendServiceOrder(so){
     // Do fancy things to service order and send to the central intelligence.
     alert("Your service was ordered!");
-    window.location = "index.html";
+    window.history.back();
 }
 
 let plannedParts = [ "Schrauben", "Eimer", "Nägel"];
 
-showServiceRequest(data.serviceRequest);
-prepareForm(data.technicians, data.serviceRequest);
-renderPlannedParts();
+function findById(id, arr){
+    for (let val of arr){
+        if (val.id === id){
+            return val;
+        }
+    }
+}
+
+function bootstrap(){
+    const url = new URL(window.location.href);
+    console.log(url);
+    let request_id = parseInt(url.searchParams.get("id"));
+    console.log(request_id);
+
+    if (!request_id){
+        request_id = 1;
+    }
+    let current_request = findById(request_id, data.serviceRequests)
+    showServiceRequest(current_request);
+    prepareForm(data.technicians, current_request);
+    renderPlannedParts();
+}
+
+bootstrap();
 
 document.addEventListener("DOMContentLoaded", () => {
     let butt = document.getElementById("addPlannedPartsButton");
     butt.addEventListener("click", () => {
         let field = document.getElementById("addPlannedParts");
-        plannedParts.push(field.value);
-        renderPlannedParts();
-        field.value = "";
+        if (field.value.trim() !== ""){
+            plannedParts.push(field.value);
+            renderPlannedParts();
+            field.value = "";
+        }
     })
 });
 

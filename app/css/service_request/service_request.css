@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: sans-serif;
 }
 
 body{
@@ -15,13 +14,14 @@ form{
 }
 
 .form_section {
-    width: calc(50% - 20px);
-    float: left;
-    border: 1px solid black;
-    background-color: lightgray;
+    width: 400px;
+    display: inline-block;
+    background-color: #e8e8e8;
     margin: 10px;
     padding: 10px;
     height: 400px;
+    text-align: left;
+    overflow: scroll;
 }
 
 .button_navigation{
@@ -48,14 +48,15 @@ form{
     height: 10px;
 }
 
-.button_navigation input[type="button"], .button_navigation input[type="submit"]{
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 5px;
-    background-color: lightblue;
-    transition: background-color .2s;
-    border: 1px solid black;
-    cursor: pointer;
+.homeLink, .homeLink img{
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin: 8px;
+}
+
+.titleText{
+    margin-top: 20px;
 }
 
 .button_navigation{
@@ -71,7 +72,8 @@ form{
 
 .containerGrid{
     margin: 90px 0 0 0;
-    display: inline-block;
+    position: relative;
+    text-align: center;
 }
 
 .header{
@@ -83,14 +85,7 @@ form{
     margin: 0;
     padding: 0;
     border-bottom: 1px solid black;
-}
-
-.button_navigation input[type="submit"]{
-    background-color: cornflowerblue;
-}
-
-.button_navigation input[type="button"]:hover, .button_navigation input[type="submit"]:hover{
-    background-color: lightgray;
+    z-index: 9000;
 }
 
 .delete_symbol:hover{

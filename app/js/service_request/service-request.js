@@ -1,5 +1,7 @@
 let data = require('./data-static');
 
+const { URL, URLSearchParams} = require('url');
+
 function fillField(field_id, field_value){
     let elem = document.getElementById(field_id);
     elem.innerText = field_value;
@@ -79,9 +81,30 @@ function sendServiceOrder(so){
 
 let plannedParts = [ "Schrauben", "Eimer", "Nägel"];
 
-showServiceRequest(data.serviceRequest);
-prepareForm(data.technicians, data.serviceRequest);
-renderPlannedParts();
+function findById(id, arr){
+    for (let val of arr){
+        if (val.id === id){
+            return val;
+        }
+    }
+}
+
+function bootstrap(){
+    const url = new URL(window.location.href);
+    console.log(url);
+    let request_id = parseInt(url.searchParams.get("id"));
+    console.log(request_id);
+
+    if (!request_id){
+        request_id = 1;
+    }
+    let current_request = findById(request_id, data.serviceRequests)
+    showServiceRequest(current_request);
+    prepareForm(data.technicians, current_request);
+    renderPlannedParts();
+}
+
+bootstrap();
 
 document.addEventListener("DOMContentLoaded", () => {
     let butt = document.getElementById("addPlannedPartsButton");

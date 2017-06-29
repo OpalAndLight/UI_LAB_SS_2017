@@ -1,4 +1,4 @@
-let elementsPerPage = 7;
+let elementsPerPage = 6;
 var currentPage = 0;
 var data;
 var rawdata;
@@ -42,7 +42,22 @@ function updatePage() {
 		} else {
 			document.getElementById("nextField").classList.remove('hidden');
 		}		
-	}	
+	}
+	FIXRETARDEDPATHSHIT();
+}
+
+function FIXRETARDEDPATHSHIT() {
+	var templatesImport = document.getElementById('nav_bar');
+	var templates = templatesImport.import;
+	var template = templates.getElementById('navigationTemplate');
+	var clone = document.importNode(template.content, true);
+	var list = clone.querySelectorAll('.navbar-nav li a');
+	
+	for (index = 0; index < list.length; ++index) {
+		var pieces = list[index].href.split("/");
+		list[index].href = "./../" + pieces[pieces.length - 1];
+	}
+	document.getElementById('anav_bar').appendChild(clone);
 }
 
 function search() {

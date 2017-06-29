@@ -1,10 +1,9 @@
 var data;
 var isValidFile= false;
 const {shell} = require('electron')
-var serviceRequestData;
-var isVallidServiceRequestData = false;
 var fs = require('fs');
 var selectedCustomerAt = -1;
+let SRQdata = require('./../service_request/data-static');
 
 function onPageLoad() {	
 	try {
@@ -15,16 +14,23 @@ function onPageLoad() {
 	catch(err) {
 		isValidFile = false;
 	}
-	try {
-		var jsonString = fs.readFileSync("app/js/customer/servicerequest_static.json");
-		serviceRequestData = JSON.parse(jsonString);
-		isVallidServiceRequestData = true;
-	}
-	catch(err) {
-		isVallidServiceRequestData = false;
-	}
 	updatePage();	
 }
+
+function FIXRETARDEDPATHSHIT() {
+	var templatesImport = document.getElementById('nav_bar');
+	var templates = templatesImport.import;
+	var template = templates.getElementById('navigationTemplate');
+	var clone = document.importNode(template.content, true);
+	var list = clone.querySelectorAll('.navbar-nav li a');
+	
+	for (index = 0; index < list.length; ++index) {
+		var pieces = list[index].href.split("/");
+		list[index].href = "./../" + pieces[pieces.length - 1];
+	}
+	document.getElementById('anav_bar').appendChild(clone);
+}
+
 
 function updatePage() {
 	var url = window.location.href;
@@ -32,6 +38,7 @@ function updatePage() {
 	if(params.length <= 1) {
 		location.href = "customer.html";
 	}
+	FIXRETARDEDPATHSHIT();
 	
 	var id = params[1];
 	document.getElementById("edit").href = "customer2.html?" + id;
@@ -57,23 +64,22 @@ function updatePage() {
 	document.getElementById("cLng").innerHTML = data.customer[selectedCustomerAt].location[1];
 	
 	var serviceRequests = 0;
-	if(isVallidServiceRequestData && isValidFile) {
-		for (index = 0; index < serviceRequestData.ServiceRequest.length; ++index) {
-			if(serviceRequestData.ServiceRequest[index].customer == data.customer[selectedCustomerAt].id) {
+	if(isValidFile) {
+		for (index = 0; index < SRQdata.serviceRequests.length; ++index) {
+			if(SRQdata.serviceRequests[index].customer.id == data.customer[selectedCustomerAt].id) {
 				var field;
-				if(serviceRequestData.ServiceRequest[index].urgency == "LOW") {
-					field = '<li class="list-group-item list-group-item-info">'; 
-				} else if(serviceRequestData.ServiceRequest[index].urgency == "HIGH") {
-					field = '<li class="list-group-item list-group-item-warning">'; 
-				} else if (serviceRequestData.ServiceRequest[index].urgency == "CRITICAL") {
-					field = '<li class="list-group-item list-group-item-danger">';					
+				if(SRQdata.serviceRequests[index].urgency == "LOW") {
+					field = '<a href="./../service_request.html?id=' + SRQdata.serviceRequests[index].id +'" class="list-group-item list-group-item-info">'; 
+				} else if(SRQdata.serviceRequests[index].urgency == "HIGH") {
+					field = '<a href="./../service_request.html?id=' + SRQdata.serviceRequests[index].id +'" class="list-group-item list-group-item-warning">'; 
+				} else if (SRQdata.serviceRequests[index].urgency == "CRITICAL") {
+					field = '<a href="./../service_request.html?id=' + SRQdata.serviceRequests[index].id +'" class="list-group-item list-group-item-danger">';					
 				} else {
-					field = '<li class="list-group-item">'; 
+					field = '<a href="./../service_request.html?id=' + SRQdata.serviceRequests[index].id +'" class="list-group-item">'; 
 				}
-				field += '<h4 class="list-group-item-heading">Type: ' + serviceRequestData.ServiceRequest[index].serviceType + '<br>Urgency: ' + serviceRequestData.ServiceRequest[index].urgency + '</h4>';
-				field += '<p class="list-group-item-text">Description: ' + serviceRequestData.ServiceRequest[index].issueDetails + '</p>';
-				field += '<p class="list-group-item-text">Servicetype: ' + serviceRequestData.ServiceRequest[index].type + '</p>';
-				field += '<p class="list-group-item-text">Date: ' + serviceRequestData.ServiceRequest[index].timestamp + '</p>';
+				field += '<h4 class="list-group-item-heading">Type: ' + SRQdata.serviceRequests[index].serviceType + '<br>Urgency: ' + SRQdata.serviceRequests[index].urgency + '</h4>';
+				field += '<p class="list-group-item-text">Description: ' + SRQdata.serviceRequests[index].issueDetails.description + '</p>';
+				field += '<p class="list-group-item-text">Servicetype: ' + SRQdata.serviceRequests[index].type + '</p>';
 				field += '</li>';
 				document.getElementById("RQcontent").innerHTML += field; 
 				serviceRequests++;
@@ -115,6 +121,10 @@ document.getElementById("WebpageLine").onclick = () => {
 
 document.getElementById("mailtoLine").onclick = () => {	
 	shell.openExternal('mailto:' + document.getElementById("cEmail").innerHTML);
+}
+
+document.getElementById("back").onclick = () => {
+	window.history.back();
 }
 
 onPageLoad();

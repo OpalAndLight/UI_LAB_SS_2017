@@ -9,11 +9,13 @@
         window.jQuery = window.$ = require('jquery');
     </script>
     <script src="../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+	<link rel="import" href="./../templates/navigation.html" id="nav_bar"></link>
 </head>
 <body>
-<div class="container">
-	<div class="page-header">
-		<h1>Customer Management</h1>
+<div class="container containerGrid">
+	<div id="anav_bar"></div>
+    <div class="page-header">
+		<h1>Customer Management: Details</h1>
 	</div>
 	<div class="row">
 		<div class="col-sm-6">
@@ -61,7 +63,7 @@
 	<div class="container row">
 		<a href="customer2.html" class="btn btn-lg btn-primary btn-block" id="edit">Edit Customer</a>
 		<button class="btn btn-lg btn-danger btn-block" id="delete" data-toggle="modal" data-target="#myModal">Delete Customer</button>
-        <a href="customer.html" class="btn btn-lg btn-default btn-block" id="back">Back to Overview</a>		
+        <button class="btn btn-lg btn-default btn-block" id="back">Back</a>		
     </div>
 		
 </div>

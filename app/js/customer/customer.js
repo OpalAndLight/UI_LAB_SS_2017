@@ -1,4 +1,4 @@
-let elementsPerPage = 7;
+let elementsPerPage = 6;
 var currentPage = 0;
 var data;
 var rawdata;
@@ -6,7 +6,7 @@ var isValidFile= false;
 
 function onPageLoad() {
 	var fs = require('fs');
-	
+	FIXRETARDEDPATHSHIT();
 	try {
 		var jsonString = fs.readFileSync("app/js/customer/customer.json");
 		rawdata = JSON.parse(jsonString);
@@ -43,6 +43,24 @@ function updatePage() {
 			document.getElementById("nextField").classList.remove('hidden');
 		}		
 	}	
+}
+
+function FIXRETARDEDPATHSHIT() {
+	var templatesImport = document.getElementById('nav_bar');
+	var templates = templatesImport.import;
+	var template = templates.getElementById('navigationTemplate');
+	var clone = document.importNode(template.content, true);
+	var list = clone.querySelectorAll('.navbar-nav li a');
+	
+	for (index = 0; index < list.length; ++index) {
+		var pieces = list[index].href.split("/");
+		if(pieces[pieces.length - 1] != "customer.html") {
+			list[index].href = "./../" + pieces[pieces.length - 1];
+		} else {
+			list[index].href = "customer.html";
+		}
+	}
+	document.getElementById('anav_bar').appendChild(clone);
 }
 
 function search() {

@@ -16,7 +16,8 @@ xmlhttp.onreadystatechange = function() {
 	}
 };
 
-function onPageLoad() {	
+function onPageLoad() {
+	FIXRETARDEDPATHSHIT();
 	try {
 		var jsonString = fs.readFileSync("app/js/customer/customer.json");
 		data = JSON.parse(jsonString);
@@ -30,6 +31,24 @@ function onPageLoad() {
 	if(params[1] != "new") {
 		updatePage();
 	}	
+}
+
+function FIXRETARDEDPATHSHIT() {
+	var templatesImport = document.getElementById('nav_bar');
+	var templates = templatesImport.import;
+	var template = templates.getElementById('navigationTemplate');
+	var clone = document.importNode(template.content, true);
+	var list = clone.querySelectorAll('.navbar-nav li a');
+	
+	for (index = 0; index < list.length; ++index) {
+		var pieces = list[index].href.split("/");
+		if(pieces[pieces.length - 1] != "customer.html") {
+			list[index].href = "./../" + pieces[pieces.length - 1];
+		} else {
+			list[index].href = "customer.html";
+		}
+	}
+	document.getElementById('anav_bar').appendChild(clone);
 }
 
 function updatePage() {

@@ -14,6 +14,7 @@ function onPageLoad() {
 	catch(err) {
 		isValidFile = false;
 	}
+	FIXRETARDEDPATHSHIT();
 	updatePage();	
 }
 
@@ -42,7 +43,6 @@ function updatePage() {
 	if(params.length <= 1) {
 		location.href = "customer.html";
 	}
-	FIXRETARDEDPATHSHIT();
 	
 	var id = params[1];
 	document.getElementById("edit").href = "customer2.html?" + id;

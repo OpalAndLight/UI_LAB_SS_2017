@@ -6,7 +6,7 @@ var isValidFile= false;
 
 function onPageLoad() {
 	var fs = require('fs');
-	
+	FIXRETARDEDPATHSHIT();
 	try {
 		var jsonString = fs.readFileSync("app/js/customer/customer.json");
 		rawdata = JSON.parse(jsonString);
@@ -42,8 +42,7 @@ function updatePage() {
 		} else {
 			document.getElementById("nextField").classList.remove('hidden');
 		}		
-	}
-	FIXRETARDEDPATHSHIT();
+	}	
 }
 
 function FIXRETARDEDPATHSHIT() {

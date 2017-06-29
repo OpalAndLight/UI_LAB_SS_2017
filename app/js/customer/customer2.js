@@ -42,7 +42,11 @@ function FIXRETARDEDPATHSHIT() {
 	
 	for (index = 0; index < list.length; ++index) {
 		var pieces = list[index].href.split("/");
-		list[index].href = "./../" + pieces[pieces.length - 1];
+		if(pieces[pieces.length - 1] != "customer.html") {
+			list[index].href = "./../" + pieces[pieces.length - 1];
+		} else {
+			list[index].href = "customer.html";
+		}
 	}
 	document.getElementById('anav_bar').appendChild(clone);
 }
